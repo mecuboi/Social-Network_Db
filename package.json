@@ -5,10 +5,9 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "watch": "nodemon index",
-    "seed": "node utils/seed",
-    "heroku-postbuild": "node utils/seed.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "heroku-postbuild": ""
   },
   "dependencies": {
     "express": "^4.17.1",

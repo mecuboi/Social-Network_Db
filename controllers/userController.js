@@ -44,7 +44,7 @@ module.exports = {
             { _id: { $in: user.thoughts } }
           )
       )
-      .then(() => res.json({ message: 'Student successfully deleted' })
+      .then(() => res.json({ message: 'User successfully deleted' })
       )
       .catch((err) => {
         console.log(err);

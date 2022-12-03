@@ -4,7 +4,7 @@ module.exports = {
   // Get all thoughts
   getThoughts(req, res) {
     Thought.find()
-    .select('-__v')
+      .select('-__v')
       .populate('reactions', '-__v -_id')
       .then((thought) => res.json(thought))
       .catch((err) => {
@@ -15,8 +15,8 @@ module.exports = {
   // Get a single thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
-    .select('-__v')
-    .populate('reactions', '-__v -_id')
+      .select('-__v')
+      .populate('reactions', '-__v -_id')
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })
@@ -31,8 +31,8 @@ module.exports = {
         return User.findOneAndUpdate(
           { username: thought.username },
           { $push: { thoughts: thought._id } },
-          { runValidators: true, new: true }
-        );
+          { new: true }
+        ).then((user) => { console.log(user) })
       }
       )
       .then(() => res.json({ message: 'Thought succesfully created' }))
